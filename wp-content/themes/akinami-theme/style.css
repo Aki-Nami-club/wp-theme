@@ -1,0 +1,60 @@
+/*
+Theme Name: AkiNami Theme
+Theme URI: https://example.com/akinami-theme
+Author: AkiNami
+Author URI: https://example.com
+Description: A lightweight starter theme for AkiNami projects.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: akinami-theme
+*/
+
+/* Basic reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #111;
+    background-color: #f9f9f9;
+}
+
+a {
+    color: #0073aa;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #005177;
+}
+
+header,
+main,
+footer {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+.site-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.site-description {
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.site-footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #777;
+    border-top: 1px solid #ddd;
+    padding-top: 1rem;
+}
