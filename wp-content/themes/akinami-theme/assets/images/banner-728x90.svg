@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="728" height="90" viewBox="0 0 728 90" role="img" aria-labelledby="title desc">
+  <title id="title">Magazine banner</title>
+  <desc id="desc">Placeholder banner for the AkiNami Theme header</desc>
+  <defs>
+    <linearGradient id="gradient" x1="0%" x2="100%" y1="0%" y2="0%">
+      <stop offset="0%" stop-color="#0b6faf" />
+      <stop offset="100%" stop-color="#1aa3ff" />
+    </linearGradient>
+  </defs>
+  <rect width="728" height="90" rx="6" fill="url(#gradient)" />
+  <rect x="12" y="12" width="704" height="66" rx="4" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" />
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff">728 × 90 Magazine Banner</text>
+</svg>

@@ -1,0 +1,236 @@
+/*
+Theme Name: AkiNami Theme
+Theme URI: https://example.com/akinami-theme
+Author: AkiNami
+Author URI: https://example.com
+Description: A lightweight starter theme for AkiNami projects.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: akinami-theme
+*/
+
+:root {
+    --max-width: 1200px;
+    --accent: #0b6faf;
+    --text: #111;
+    --muted: #555;
+    --border: #e0e0e0;
+    --background: #f7f7f7;
+    --surface: #ffffff;
+}
+
+/* Basic reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--background);
+}
+
+a {
+    color: #0073aa;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #005177;
+}
+
+.site-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.site-header,
+.site-footer {
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.header-row--spacer {
+    min-height: 10px;
+    border-bottom: none;
+}
+
+.header-row--branding {
+    flex-wrap: wrap;
+}
+
+.site-branding {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.brand-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.site-title {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.site-tagline {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.header-banner img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.header-row--nav {
+    border-bottom: none;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+}
+
+.site-navigation .primary-menu {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    font-weight: 600;
+}
+
+.site-navigation .primary-menu li {
+    position: relative;
+}
+
+.site-navigation .primary-menu a {
+    color: var(--text);
+    padding: 0.35rem 0;
+}
+
+.site-navigation .primary-menu a:hover,
+.site-navigation .primary-menu a:focus {
+    color: var(--accent);
+}
+
+.site-main {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    padding: 2rem 0 3rem;
+}
+
+.content-area {
+    flex: 2;
+}
+
+.sidebar {
+    flex: 1;
+    max-width: 320px;
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.widget {
+    margin-bottom: 1.5rem;
+}
+
+.widget-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+article {
+    background: var(--surface);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.entry-header {
+    margin-bottom: 0.75rem;
+}
+
+.entry-title {
+    margin-top: 0.75rem;
+    font-size: 1.5rem;
+}
+
+.entry-thumbnail img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.entry-content {
+    margin: 0.75rem 0;
+    color: var(--muted);
+}
+
+.entry-footer {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.site-footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #777;
+    border-top: 1px solid var(--border);
+    padding: 1.5rem;
+}
+
+.footer-navigation .footer-menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 0.75rem;
+}
+
+@media (max-width: 960px) {
+    .header-row--branding {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-banner img {
+        width: 100%;
+        height: auto;
+    }
+
+    .site-main {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        max-width: none;
+        width: 100%;
+    }
+}
