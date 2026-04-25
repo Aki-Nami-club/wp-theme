@@ -1,5 +1,6 @@
 # Project: VibeMag FSE WordPress Theme
 # Reference: Merimag (News/Magazine Style)
+# Theme Name: VibeMag
 
 ## 1. General Overview
 A modern WordPress Full Site Editing (FSE) theme built for high-content density blogs.
