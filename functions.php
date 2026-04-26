@@ -15,9 +15,16 @@ add_action('wp_enqueue_scripts', static function (): void {
     $theme_version = wp_get_theme()->get('Version');
 
     wp_enqueue_style(
+        'vibemag-fonts',
+        'https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&display=swap',
+        [],
+        null
+    );
+
+    wp_enqueue_style(
         'vibemag-tailwind',
         'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css',
-        [],
+        ['vibemag-fonts'],
         '2.2.19'
     );
 
@@ -73,6 +80,17 @@ add_action('wp_enqueue_scripts', static function (): void {
                 'searching' => esc_html__('Searching...', 'vibemag'),
                 'noResults' => esc_html__('No results found.', 'vibemag'),
                 'untitled' => esc_html__('Untitled', 'vibemag'),
+                'latestLabel' => esc_html__('Latest:', 'vibemag'),
+                'closeSearch' => esc_html__('Close search', 'vibemag'),
+                'sidebarAd' => esc_html__('Sidebar Ad', 'vibemag'),
+                'moreStories' => esc_html__('More stories', 'vibemag'),
+                'readMore' => esc_html__('Read more', 'vibemag'),
+                'footerPages' => esc_html__('Pages', 'vibemag'),
+                'footerCategories' => esc_html__('Categories', 'vibemag'),
+                'backToTop' => esc_html__('Back to top', 'vibemag'),
+                'headerBannerAlt' => esc_html__('Header ad banner', 'vibemag'),
+                'sidebarBannerAlt' => esc_html__('Sidebar ad banner', 'vibemag'),
+                'wideBannerAlt' => esc_html__('Wide ad banner', 'vibemag'),
             ],
         ]
     );
@@ -256,6 +274,78 @@ add_shortcode('vibemag_category_block', static function (array $atts = []): stri
     return $output;
 });
 
+
+
+add_shortcode('vibemag_ad_image', static function (array $atts = []): string {
+    $atts = shortcode_atts(
+        [
+            'slot' => 'header',
+            'class' => '',
+        ],
+        $atts,
+        'vibemag_ad_image'
+    );
+
+    $slot = sanitize_key((string) $atts['slot']);
+
+    $map = [
+        'header' => [
+            'file' => 'assets/images/banners/ad-header-728x90.png',
+            'alt' => esc_html__('Header ad banner', 'vibemag'),
+            'width' => 728,
+            'height' => 90,
+            'class' => 'vibemag-header__ad',
+        ],
+        'sidebar' => [
+            'file' => 'assets/images/banners/ad-sidebar-300x250.png',
+            'alt' => esc_html__('Sidebar ad banner', 'vibemag'),
+            'width' => 300,
+            'height' => 250,
+            'class' => 'vibemag-sidebar__ad',
+        ],
+        'wide' => [
+            'file' => 'assets/images/banners/ad-wide-970x250.png',
+            'alt' => esc_html__('Wide ad banner', 'vibemag'),
+            'width' => 970,
+            'height' => 250,
+            'class' => 'vibemag-wide-ad__image',
+        ],
+    ];
+
+    if (! isset($map[$slot])) {
+        return '';
+    }
+
+    $item = $map[$slot];
+    $classes = trim($item['class'] . ' ' . (string) $atts['class']);
+
+    return sprintf(
+        '<img class="%1$s" src="%2$s" alt="%3$s" width="%4$d" height="%5$d" loading="lazy" />',
+        esc_attr($classes),
+        esc_url(get_theme_file_uri($item['file'])),
+        esc_attr($item['alt']),
+        (int) $item['width'],
+        (int) $item['height']
+    );
+});
+
+
+add_shortcode('vibemag_sidebar_ad', static function (): string {
+    $title = esc_html__('Sidebar Ad', 'vibemag');
+    $image = do_shortcode('[vibemag_ad_image slot="sidebar"]');
+
+    return sprintf(
+        '<aside class="vibemag-sidebar-widget"><h3>%1$s</h3>%2$s</aside>',
+        $title,
+        $image
+    );
+});
+
+add_shortcode('vibemag_wide_ad', static function (): string {
+    $image = do_shortcode('[vibemag_ad_image slot="wide"]');
+
+    return '<section class="vibemag-wide-ad">' . $image . '</section>';
+});
 add_shortcode('vibemag_related_posts', static function (array $atts = []): string {
     if (! is_singular('post')) {
         return '';

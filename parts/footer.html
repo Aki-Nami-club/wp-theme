@@ -1,7 +1,41 @@
-<!-- wp:group {"style":{"spacing":{"padding":{"top":"24px","bottom":"24px"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group"><!-- wp:paragraph --><p>© VibeMag</p><!-- /wp:paragraph --></div>
+<!-- wp:group {"className":"vibemag-footer","style":{"spacing":{"padding":{"top":"32px","bottom":"24px"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group vibemag-footer">
+  <!-- wp:columns -->
+  <div class="wp-block-columns">
+    <!-- wp:column {"width":"30%"} -->
+    <div class="wp-block-column" style="flex-basis:30%">
+      <!-- wp:site-logo {"width":96} /-->
+    </div>
+    <!-- /wp:column -->
+
+    <!-- wp:column -->
+    <div class="wp-block-column">
+      <!-- wp:heading {"level":4} -->
+      <h4 data-i18n-text="footerPages">Pages</h4>
+      <!-- /wp:heading -->
+
+      <!-- wp:page-list /-->
+    </div>
+    <!-- /wp:column -->
+
+    <!-- wp:column -->
+    <div class="wp-block-column">
+      <!-- wp:heading {"level":4} -->
+      <h4 data-i18n-text="footerCategories">Categories</h4>
+      <!-- /wp:heading -->
+
+      <!-- wp:categories {"showPostCounts":false} /-->
+    </div>
+    <!-- /wp:column -->
+  </div>
+  <!-- /wp:columns -->
+
+  <!-- wp:paragraph {"align":"center"} -->
+  <p class="has-text-align-center">© VibeMag</p>
+  <!-- /wp:paragraph -->
+</div>
 <!-- /wp:group -->
 
 <!-- wp:html -->
-<button id="vibemag-back-to-top" class="vibemag-back-to-top" type="button" aria-label="Back to top">↑</button>
+<button id="vibemag-back-to-top" class="vibemag-back-to-top" type="button" aria-label="Back to top" data-i18n-aria-label="backToTop">↑</button>
 <!-- /wp:html -->

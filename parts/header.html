@@ -3,7 +3,7 @@
   <!-- wp:group {"className":"vibemag-header__ticker","layout":{"type":"constrained"}} -->
   <div class="wp-block-group vibemag-header__ticker">
     <!-- wp:paragraph {"className":"vibemag-header__ticker-label"} -->
-    <p class="vibemag-header__ticker-label">Latest:</p>
+    <p class="vibemag-header__ticker-label" data-i18n-text="latestLabel">Latest:</p>
     <!-- /wp:paragraph -->
 
     <!-- wp:shortcode -->
@@ -16,41 +16,31 @@
   <div class="wp-block-group vibemag-header__branding">
     <!-- wp:site-logo {"width":180} /-->
 
-    <!-- wp:html -->
-    <div class="vibemag-header__ad-wrap">
-      <img class="vibemag-header__ad" src="/wp-content/themes/vibemag/assets/images/banners/ad-header-728x90.png" alt="Header Ad Banner" width="728" height="90" loading="lazy" />
-    </div>
-    <!-- /wp:html -->
+    <!-- wp:shortcode -->
+    [vibemag_ad_image slot="header"]
+    <!-- /wp:shortcode -->
   </div>
   <!-- /wp:group -->
 
   <!-- wp:group {"className":"vibemag-header__nav is-sticky","layout":{"type":"flex","justifyContent":"space-between","verticalAlignment":"center"}} -->
-  <div class="wp-block-group vibemag-header__nav is-sticky" x-data="vibemagSearch()">
+  <div class="wp-block-group vibemag-header__nav is-sticky">
     <!-- wp:navigation {"layout":{"type":"flex","justifyContent":"left"}} /-->
 
     <!-- wp:html -->
-    <div class="vibemag-search">
+    <div class="vibemag-search" data-search-root>
       <button type="button" class="vibemag-theme-toggle" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria-label="toggleDarkMode">🌙</button>
-      <button type="button" class="vibemag-search__toggle" @click="open = true" aria-label="Open search" data-i18n-aria-label="openSearch">🔍</button>
+      <button type="button" class="vibemag-search__toggle" data-search-open aria-label="Open search" data-i18n-aria-label="openSearch">🔍</button>
 
-      <div class="vibemag-search__overlay" x-show="open" x-transition @click.self="close()" x-cloak>
-        <div class="vibemag-search__panel" @keydown.escape.window="close()">
+      <div class="vibemag-search__overlay" data-search-overlay>
+        <div class="vibemag-search__panel">
           <div class="vibemag-search__bar">
-            <input type="search" placeholder="Search posts..." data-i18n-placeholder="searchPlaceholder" x-model="query" @input.debounce.300ms="doSearch" />
-            <button type="button" @click="close()">✕</button>
+            <input type="search" placeholder="Search posts..." data-i18n-placeholder="searchPlaceholder" data-search-input />
+            <button type="button" data-search-close data-i18n-aria-label="closeSearch" aria-label="Close search">✕</button>
           </div>
 
-          <template x-if="loading">
-            <p>Searching...</p>
-          </template>
-
-          <ul class="vibemag-search__results" x-show="results.length">
-            <template x-for="item in results" :key="item.id">
-              <li><a :href="item.url" x-text="item.title"></a></li>
-            </template>
-          </ul>
-
-          <p x-show="!loading && query.length > 2 && !results.length">No results found.</p>
+          <p data-search-loading data-i18n-text="searching" hidden>Searching...</p>
+          <ul class="vibemag-search__results" data-search-results hidden></ul>
+          <p data-search-empty data-i18n-text="noResults" hidden>No results found.</p>
         </div>
       </div>
     </div>
