@@ -203,3 +203,21 @@
   color: #67758a;
   font-size: 0.82rem;
 }
+
+.vibemag-sidebar-widget {
+  border: 1px solid #eceff4;
+  border-radius: 0.5rem;
+  background: #fff;
+  padding: 0.75rem;
+}
+
+.vibemag-sidebar-widget h3 {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+}
+
+.vibemag-sidebar-widget img {
+  width: 100%;
+  height: auto;
+  display: block;
+}

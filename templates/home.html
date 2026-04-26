@@ -1,15 +1,40 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
-<!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
-<div class="wp-block-group">
+
+<!-- wp:group {"tagName":"main","layout":{"type":"constrained"},"className":"vibemag-home-main"} -->
+<div class="wp-block-group vibemag-home-main">
   <!-- wp:shortcode -->
   [vibemag_home_slider]
   <!-- /wp:shortcode -->
 
-  <!-- wp:heading --><h2>Latest Posts</h2><!-- /wp:heading -->
+  <!-- wp:group {"className":"grid grid-cols-1 lg:grid-cols-4 gap-6 items-start"} -->
+  <div class="wp-block-group grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
+    <!-- wp:group {"className":"lg:col-span-3 space-y-8"} -->
+    <div class="wp-block-group lg:col-span-3 space-y-8">
+      <!-- wp:shortcode -->
+      [vibemag_category_block category_id="1" count="5"]
+      <!-- /wp:shortcode -->
 
-  <!-- wp:query {"query":{"perPage":10,"postType":"post"}} -->
-  <div class="wp-block-query"><!-- wp:post-template --><!-- wp:post-title {"isLink":true} /--><!-- /wp:post-template --></div>
-  <!-- /wp:query -->
+      <!-- wp:shortcode -->
+      [vibemag_category_block category_id="2" count="5"]
+      <!-- /wp:shortcode -->
+    </div>
+    <!-- /wp:group -->
+
+    <!-- wp:group {"className":"lg:col-span-1 sticky top-24 space-y-6"} -->
+    <div class="wp-block-group lg:col-span-1 sticky top-24 space-y-6">
+      <!-- wp:html -->
+      <aside class="vibemag-sidebar-widget">
+        <h3>Sidebar Ad</h3>
+        <img src="/wp-content/themes/vibemag/assets/images/banners/ad-sidebar-300x250.png" alt="Sidebar Ad Banner" width="300" height="250" loading="lazy" />
+      </aside>
+      <!-- /wp:html -->
+
+      <!-- wp:latest-posts {"postsToShow":6,"displayPostDate":true} /-->
+    </div>
+    <!-- /wp:group -->
+  </div>
+  <!-- /wp:group -->
 </div>
 <!-- /wp:group -->
+
 <!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
