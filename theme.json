@@ -1,0 +1,73 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "color": {
+      "defaultPalette": false,
+      "palette": [
+        { "name": "Light Background", "slug": "light-bg", "color": "#FFFFFF" },
+        { "name": "Light Surface", "slug": "light-surface", "color": "#F7F8FA" },
+        { "name": "Light Text", "slug": "light-text", "color": "#16181D" },
+        { "name": "Dark Background", "slug": "dark-bg", "color": "#0F1115" },
+        { "name": "Dark Surface", "slug": "dark-surface", "color": "#1A1E24" },
+        { "name": "Dark Text", "slug": "dark-text", "color": "#E8ECF2" },
+        { "name": "Accent", "slug": "accent", "color": "#E67E22" }
+      ]
+    },
+    "layout": {
+      "contentSize": "840px",
+      "wideSize": "1200px"
+    },
+    "spacing": {
+      "blockGap": "1rem",
+      "spacingSizes": [
+        { "name": "Gap 0", "slug": "gap-0", "size": "0" },
+        { "name": "Gap 1", "slug": "gap-1", "size": "0.25rem" },
+        { "name": "Gap 2", "slug": "gap-2", "size": "0.5rem" },
+        { "name": "Gap 3", "slug": "gap-3", "size": "0.75rem" },
+        { "name": "Gap 4", "slug": "gap-4", "size": "1rem" },
+        { "name": "Gap 5", "slug": "gap-5", "size": "1.25rem" },
+        { "name": "Gap 6", "slug": "gap-6", "size": "1.5rem" },
+        { "name": "Gap 8", "slug": "gap-8", "size": "2rem" },
+        { "name": "Gap 10", "slug": "gap-10", "size": "2.5rem" },
+        { "name": "Gap 12", "slug": "gap-12", "size": "3rem" }
+      ],
+      "units": ["px", "rem", "em", "%", "vw"]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "fontFamily": "'Exo 2', sans-serif",
+          "name": "Exo 2",
+          "slug": "exo-2"
+        }
+      ],
+      "fluid": true
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--light-bg)",
+      "text": "var(--wp--preset--color--light-text)"
+    },
+    "spacing": {
+      "blockGap": "var(--wp--preset--spacing--gap-4)"
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--exo-2)",
+      "lineHeight": "1.6"
+    },
+    "elements": {
+      "link": {
+        "color": {
+          "text": "var(--wp--preset--color--accent)"
+        }
+      }
+    }
+  },
+  "templateParts": [
+    { "name": "header", "title": "Header", "area": "header" },
+    { "name": "footer", "title": "Footer", "area": "footer" }
+  ]
+}
