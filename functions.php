@@ -66,6 +66,14 @@ add_action('wp_enqueue_scripts', static function (): void {
             'restUrl' => esc_url_raw(rest_url('wp/v2/search')),
             'homeUrl' => esc_url_raw(home_url('/')),
             'searchNonce' => wp_create_nonce('wp_rest'),
+            'i18n' => [
+                'openSearch' => esc_html__('Open search', 'vibemag'),
+                'toggleDarkMode' => esc_html__('Toggle dark mode', 'vibemag'),
+                'searchPlaceholder' => esc_html__('Search posts...', 'vibemag'),
+                'searching' => esc_html__('Searching...', 'vibemag'),
+                'noResults' => esc_html__('No results found.', 'vibemag'),
+                'untitled' => esc_html__('Untitled', 'vibemag'),
+            ],
         ]
     );
 });

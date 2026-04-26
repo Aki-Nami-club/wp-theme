@@ -30,13 +30,13 @@
 
     <!-- wp:html -->
     <div class="vibemag-search">
-      <button type="button" class="vibemag-theme-toggle" data-theme-toggle aria-label="Toggle dark mode">🌙</button>
-      <button type="button" class="vibemag-search__toggle" @click="open = true" aria-label="Open search">🔍</button>
+      <button type="button" class="vibemag-theme-toggle" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria-label="toggleDarkMode">🌙</button>
+      <button type="button" class="vibemag-search__toggle" @click="open = true" aria-label="Open search" data-i18n-aria-label="openSearch">🔍</button>
 
       <div class="vibemag-search__overlay" x-show="open" x-transition @click.self="close()" x-cloak>
         <div class="vibemag-search__panel" @keydown.escape.window="close()">
           <div class="vibemag-search__bar">
-            <input type="search" placeholder="Search posts..." x-model="query" @input.debounce.300ms="doSearch" />
+            <input type="search" placeholder="Search posts..." data-i18n-placeholder="searchPlaceholder" x-model="query" @input.debounce.300ms="doSearch" />
             <button type="button" @click="close()">✕</button>
           </div>
 

@@ -1,5 +1,6 @@
 (function () {
   const endpoint = window.vibemagSettings?.restUrl || '/wp-json/wp/v2/search';
+  const i18n = window.vibemagSettings?.i18n || {};
 
   function initHomeSlider() {
     const sliderElement = document.querySelector('.vibemag-home-slider');
@@ -25,6 +26,30 @@
   }
 
 
+
+
+  function initI18nUI() {
+    document.querySelectorAll('[data-i18n-text]').forEach((el) => {
+      const key = el.getAttribute('data-i18n-text');
+      if (key && i18n[key]) {
+        el.textContent = i18n[key];
+      }
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (key && i18n[key]) {
+        el.setAttribute('placeholder', i18n[key]);
+      }
+    });
+
+    document.querySelectorAll('[data-i18n-aria-label]').forEach((el) => {
+      const key = el.getAttribute('data-i18n-aria-label');
+      if (key && i18n[key]) {
+        el.setAttribute('aria-label', i18n[key]);
+      }
+    });
+  }
 
   function initThemeMode() {
     const root = document.documentElement;
@@ -134,7 +159,7 @@
 
           this.results = data.map((item) => ({
             id: item.id,
-            title: item.title || 'Untitled',
+            title: item.title || i18n.untitled || 'Untitled',
             url: item.url,
           }));
         } catch (error) {
@@ -149,6 +174,7 @@
   };
 
   document.addEventListener('DOMContentLoaded', () => {
+    initI18nUI();
     initHomeSlider();
     initThemeMode();
     initBackToTop();
