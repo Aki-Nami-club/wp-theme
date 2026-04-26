@@ -139,3 +139,67 @@
     grid-template-columns: 1fr;
   }
 }
+
+.vibemag-category-block {
+  margin: 2rem 0;
+}
+
+.vibemag-category-block__title {
+  margin: 0 0 1rem;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.vibemag-category-block__featured {
+  margin-bottom: 1rem;
+  border: 1px solid #eceff4;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: #fff;
+}
+
+.vibemag-category-block__featured img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.vibemag-category-block__featured h3 {
+  margin: 0;
+  padding: 0.85rem 0.85rem 0.35rem;
+  font-size: 1.05rem;
+}
+
+.vibemag-category-block__featured time {
+  display: block;
+  padding: 0 0.85rem 0.85rem;
+  font-size: 0.82rem;
+  color: #67758a;
+}
+
+.vibemag-category-block__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid #eceff4;
+  border-radius: 0.5rem;
+  background: #fff;
+}
+
+.vibemag-category-block__list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0.85rem;
+}
+
+.vibemag-category-block__list li + li {
+  border-top: 1px solid #eceff4;
+}
+
+.vibemag-category-block__list time {
+  flex-shrink: 0;
+  color: #67758a;
+  font-size: 0.82rem;
+}

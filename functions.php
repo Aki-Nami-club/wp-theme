@@ -157,3 +157,93 @@ add_shortcode('vibemag_home_slider', static function (): string {
 
     return $output;
 });
+
+add_shortcode('vibemag_category_block', static function (array $atts = []): string {
+    $atts = shortcode_atts(
+        [
+            'category_id' => 0,
+            'title'       => '',
+            'count'       => 5,
+        ],
+        $atts,
+        'vibemag_category_block'
+    );
+
+    $category_id = (int) $atts['category_id'];
+    $count       = max(2, (int) $atts['count']);
+
+    if ($category_id <= 0) {
+        return '<p>' . esc_html__('Set a valid category_id for vibemag_category_block.', 'vibemag') . '</p>';
+    }
+
+    $category = get_category($category_id);
+
+    if (! $category || is_wp_error($category)) {
+        return '<p>' . esc_html__('Category not found.', 'vibemag') . '</p>';
+    }
+
+    $query = new WP_Query(
+        [
+            'post_type'           => 'post',
+            'posts_per_page'      => $count,
+            'cat'                 => $category_id,
+            'post_status'         => 'publish',
+            'ignore_sticky_posts' => true,
+            'no_found_rows'       => true,
+        ]
+    );
+
+    if (! $query->have_posts()) {
+        return '<p>' . esc_html__('No posts in this category yet.', 'vibemag') . '</p>';
+    }
+
+    $posts = [];
+
+    while ($query->have_posts()) {
+        $query->the_post();
+        $posts[] = [
+            'title'     => get_the_title(),
+            'permalink' => get_permalink(),
+            'thumb'     => get_the_post_thumbnail_url(get_the_ID(), 'large'),
+            'date'      => get_the_date(),
+        ];
+    }
+
+    wp_reset_postdata();
+
+    $heading = $atts['title'] !== '' ? $atts['title'] : $category->name;
+    $primary = array_shift($posts);
+
+    $output = '<section class="vibemag-category-block">';
+    $output .= sprintf('<h2 class="vibemag-category-block__title">%s</h2>', esc_html($heading));
+
+    $thumb = $primary['thumb'] ?: get_theme_file_uri('assets/images/placeholders/default-post-thumbnail.png');
+    $output .= '<article class="vibemag-category-block__featured">';
+    $output .= sprintf(
+        '<a href="%1$s"><img src="%2$s" alt="%3$s" loading="lazy" /><h3>%3$s</h3><time>%4$s</time></a>',
+        esc_url($primary['permalink']),
+        esc_url($thumb),
+        esc_html($primary['title']),
+        esc_html($primary['date'])
+    );
+    $output .= '</article>';
+
+    if (! empty($posts)) {
+        $output .= '<ul class="vibemag-category-block__list">';
+
+        foreach ($posts as $item) {
+            $output .= sprintf(
+                '<li><a href="%1$s">%2$s</a><time>%3$s</time></li>',
+                esc_url($item['permalink']),
+                esc_html($item['title']),
+                esc_html($item['date'])
+            );
+        }
+
+        $output .= '</ul>';
+    }
+
+    $output .= '</section>';
+
+    return $output;
+});
