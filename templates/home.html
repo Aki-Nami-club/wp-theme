@@ -22,9 +22,12 @@
 
     <!-- wp:group {"className":"lg:col-span-1 sticky top-24 space-y-6"} -->
     <div class="wp-block-group lg:col-span-1 sticky top-24 space-y-6">
-      <!-- wp:shortcode -->
-      [vibemag_sidebar_ad]
-      <!-- /wp:shortcode -->
+      <!-- wp:html -->
+      <aside class="vibemag-sidebar-widget">
+        <h3 data-i18n-text="sidebarAd">Sidebar Ad</h3>
+        <img src="/wp-content/themes/vibemag/assets/images/banners/ad-sidebar-300x250.png" alt="Sidebar ad banner" data-i18n-alt="sidebarBannerAlt" width="300" height="250" loading="lazy" />
+      </aside>
+      <!-- /wp:html -->
 
       <!-- wp:latest-posts {"postsToShow":6,"displayPostDate":true} /-->
     </div>
@@ -32,9 +35,11 @@
   </div>
   <!-- /wp:group -->
 
-  <!-- wp:shortcode -->
-  [vibemag_wide_ad]
-  <!-- /wp:shortcode -->
+  <!-- wp:html -->
+  <section class="vibemag-wide-ad">
+    <img src="/wp-content/themes/vibemag/assets/images/banners/ad-wide-970x250.png" alt="Wide ad banner" data-i18n-alt="wideBannerAlt" width="970" height="250" loading="lazy" />
+  </section>
+  <!-- /wp:html -->
 
   <!-- wp:group {"className":"grid grid-cols-1 lg:grid-cols-4 gap-6 items-start"} -->
   <div class="wp-block-group grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
