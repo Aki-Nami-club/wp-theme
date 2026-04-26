@@ -25,16 +25,16 @@
   <!-- /wp:group -->
 
   <!-- wp:group {"className":"vibemag-header__nav is-sticky","layout":{"type":"flex","justifyContent":"space-between","verticalAlignment":"center"}} -->
-  <div class="wp-block-group vibemag-header__nav is-sticky" x-data="vibemagSearch()">
+  <div class="wp-block-group vibemag-header__nav is-sticky">
     <!-- wp:navigation {"layout":{"type":"flex","justifyContent":"left"}} /-->
 
     <!-- wp:html -->
-    <div class="vibemag-search">
+    <div class="vibemag-search" data-search-root>
       <button type="button" class="vibemag-theme-toggle" data-theme-toggle aria-label="Toggle dark mode" data-i18n-aria-label="toggleDarkMode">🌙</button>
-      <button type="button" class="vibemag-search__toggle" @click="open = true" aria-label="Open search" data-i18n-aria-label="openSearch">🔍</button>
+      <button type="button" class="vibemag-search__toggle" data-search-open aria-label="Open search" data-i18n-aria-label="openSearch">🔍</button>
 
-      <div class="vibemag-search__overlay" x-show="open" x-transition @click.self="close()" x-cloak>
-        <div class="vibemag-search__panel" @keydown.escape.window="close()">
+      <div class="vibemag-search__overlay" data-search-overlay>
+        <div class="vibemag-search__panel">
           <div class="vibemag-search__bar">
             <input type="search" placeholder="Search posts..." data-i18n-placeholder="searchPlaceholder" x-model="query" @input.debounce.300ms="doSearch" />
             <button type="button" @click="close()" data-i18n-aria-label="closeSearch" aria-label="Close search">✕</button>
