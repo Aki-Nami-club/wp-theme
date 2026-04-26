@@ -1,5 +1,15 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 <!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
-<div class="wp-block-group"><!-- wp:heading --><h2>Home</h2><!-- /wp:heading --><!-- wp:query {"query":{"perPage":10,"postType":"post"}} --><div class="wp-block-query"><!-- wp:post-template --><!-- wp:post-title {"isLink":true} /--><!-- /wp:post-template --></div><!-- /wp:query --></div>
+<div class="wp-block-group">
+  <!-- wp:shortcode -->
+  [vibemag_home_slider]
+  <!-- /wp:shortcode -->
+
+  <!-- wp:heading --><h2>Latest Posts</h2><!-- /wp:heading -->
+
+  <!-- wp:query {"query":{"perPage":10,"postType":"post"}} -->
+  <div class="wp-block-query"><!-- wp:post-template --><!-- wp:post-title {"isLink":true} /--><!-- /wp:post-template --></div>
+  <!-- /wp:query -->
+</div>
 <!-- /wp:group -->
 <!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

@@ -97,3 +97,45 @@
 .vibemag-search__results li + li {
   margin-top: 0.5rem;
 }
+
+.vibemag-home-slider {
+  margin: 1rem 0 2rem;
+}
+
+.vibemag-slide-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.vibemag-slide-card {
+  background: #fff;
+  border: 1px solid #eceff4;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.vibemag-slide-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.vibemag-slide-card h3 {
+  margin: 0;
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+.vibemag-home-slider .swiper-button-prev,
+.vibemag-home-slider .swiper-button-next {
+  color: #e67e22;
+}
+
+@media (max-width: 768px) {
+  .vibemag-slide-grid {
+    grid-template-columns: 1fr;
+  }
+}

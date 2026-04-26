@@ -1,6 +1,29 @@
 (function () {
   const endpoint = window.vibemagSettings?.restUrl || '/wp-json/wp/v2/search';
 
+  function initHomeSlider() {
+    const sliderElement = document.querySelector('.vibemag-home-slider');
+
+    if (!sliderElement || typeof window.Swiper === 'undefined') {
+      return;
+    }
+
+    // eslint-disable-next-line no-new
+    new window.Swiper(sliderElement, {
+      loop: false,
+      slidesPerView: 1,
+      spaceBetween: 24,
+      pagination: {
+        el: '.vibemag-home-slider .swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.vibemag-home-slider .swiper-button-next',
+        prevEl: '.vibemag-home-slider .swiper-button-prev',
+      },
+    });
+  }
+
   window.vibemagSearch = function vibemagSearch() {
     return {
       open: false,
@@ -66,4 +89,6 @@
       },
     };
   };
+
+  document.addEventListener('DOMContentLoaded', initHomeSlider);
 })();
