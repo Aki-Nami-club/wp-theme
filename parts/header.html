@@ -2,8 +2,8 @@
 <div class="wp-block-group vibemag-header">
   <!-- wp:group {"className":"vibemag-header__ticker","layout":{"type":"constrained"}} -->
   <div class="wp-block-group vibemag-header__ticker">
-    <!-- wp:paragraph {"className":"vibemag-header__ticker-label"} -->
-    <p class="vibemag-header__ticker-label">Latest:</p>
+    <!-- wp:paragraph {"className":"vibemag-header__ticker-label","metadata":{"bindings":{"content":{"source":"core/pattern-overrides"}}}} -->
+    <p class="vibemag-header__ticker-label" data-i18n-text="latestLabel">Latest:</p>
     <!-- /wp:paragraph -->
 
     <!-- wp:shortcode -->
@@ -18,7 +18,7 @@
 
     <!-- wp:html -->
     <div class="vibemag-header__ad-wrap">
-      <img class="vibemag-header__ad" src="/wp-content/themes/vibemag/assets/images/banners/ad-header-728x90.png" alt="Header Ad Banner" width="728" height="90" loading="lazy" />
+      <img class="vibemag-header__ad" src="/wp-content/themes/vibemag/assets/images/banners/ad-header-728x90.png" alt="Header ad banner" data-i18n-alt="headerBannerAlt" width="728" height="90" loading="lazy" />
     </div>
     <!-- /wp:html -->
   </div>
@@ -37,11 +37,11 @@
         <div class="vibemag-search__panel" @keydown.escape.window="close()">
           <div class="vibemag-search__bar">
             <input type="search" placeholder="Search posts..." data-i18n-placeholder="searchPlaceholder" x-model="query" @input.debounce.300ms="doSearch" />
-            <button type="button" @click="close()">✕</button>
+            <button type="button" @click="close()" data-i18n-aria-label="closeSearch" aria-label="Close search">✕</button>
           </div>
 
           <template x-if="loading">
-            <p>Searching...</p>
+            <p data-i18n-text="searching">Searching...</p>
           </template>
 
           <ul class="vibemag-search__results" x-show="results.length">
@@ -50,7 +50,7 @@
             </template>
           </ul>
 
-          <p x-show="!loading && query.length > 2 && !results.length">No results found.</p>
+          <p x-show="!loading && query.length > 2 && !results.length" data-i18n-text="noResults">No results found.</p>
         </div>
       </div>
     </div>

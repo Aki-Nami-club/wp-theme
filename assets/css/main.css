@@ -365,3 +365,30 @@
   border-color: #3a424d;
   color: #e8ecf2;
 }
+
+.vibemag-wide-ad {
+  margin: 2rem 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.vibemag-wide-ad img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.vibemag-footer {
+  border-top: 1px solid #eceff4;
+  margin-top: 2rem;
+}
+
+.vibemag-footer__logo-wrap img {
+  max-width: 96px;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+:root[data-theme='dark'] .vibemag-footer {
+  border-top-color: #2c333d;
+}
