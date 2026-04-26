@@ -247,3 +247,68 @@ add_shortcode('vibemag_category_block', static function (array $atts = []): stri
 
     return $output;
 });
+
+add_shortcode('vibemag_related_posts', static function (array $atts = []): string {
+    if (! is_singular('post')) {
+        return '';
+    }
+
+    $atts = shortcode_atts(
+        [
+            'count' => 4,
+        ],
+        $atts,
+        'vibemag_related_posts'
+    );
+
+    $count   = max(2, (int) $atts['count']);
+    $post_id = get_the_ID();
+
+    if (! $post_id) {
+        return '';
+    }
+
+    $category_ids = wp_get_post_categories($post_id);
+
+    if (empty($category_ids)) {
+        return '';
+    }
+
+    $query = new WP_Query(
+        [
+            'post_type'           => 'post',
+            'posts_per_page'      => $count,
+            'post__not_in'        => [$post_id],
+            'category__in'        => $category_ids,
+            'ignore_sticky_posts' => true,
+            'no_found_rows'       => true,
+        ]
+    );
+
+    if (! $query->have_posts()) {
+        return '';
+    }
+
+    $output = '<section class="vibemag-related-posts">';
+    $output .= '<h2>' . esc_html__('Related Posts', 'vibemag') . '</h2>';
+    $output .= '<div class="vibemag-related-posts__grid">';
+
+    while ($query->have_posts()) {
+        $query->the_post();
+
+        $thumb = get_the_post_thumbnail_url(get_the_ID(), 'medium_large') ?: get_theme_file_uri('assets/images/placeholders/default-post-thumbnail.png');
+
+        $output .= sprintf(
+            '<article class="vibemag-related-posts__item"><a href="%1$s"><img src="%2$s" alt="%3$s" loading="lazy" /><h3>%3$s</h3></a></article>',
+            esc_url(get_permalink()),
+            esc_url($thumb),
+            esc_html(get_the_title())
+        );
+    }
+
+    $output .= '</div></section>';
+
+    wp_reset_postdata();
+
+    return $output;
+});

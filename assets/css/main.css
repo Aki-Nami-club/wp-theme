@@ -221,3 +221,62 @@
   height: auto;
   display: block;
 }
+
+.vibemag-single {
+  margin-top: 1rem;
+}
+
+.vibemag-author-box {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #eceff4;
+  border-radius: 0.5rem;
+  background: #fff;
+}
+
+.vibemag-author-box h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+}
+
+.vibemag-related-posts {
+  margin-top: 2rem;
+}
+
+.vibemag-related-posts h2 {
+  margin: 0 0 1rem;
+  font-size: 1.2rem;
+}
+
+.vibemag-related-posts__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.vibemag-related-posts__item {
+  border: 1px solid #eceff4;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: #fff;
+}
+
+.vibemag-related-posts__item img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.vibemag-related-posts__item h3 {
+  margin: 0;
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+@media (max-width: 768px) {
+  .vibemag-related-posts__grid {
+    grid-template-columns: 1fr;
+  }
+}

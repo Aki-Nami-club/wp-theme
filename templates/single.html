@@ -1,5 +1,42 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
-<!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
-<div class="wp-block-group"><!-- wp:post-title /--><!-- wp:post-content /--></div>
+
+<!-- wp:group {"tagName":"main","layout":{"type":"constrained"},"className":"vibemag-single"} -->
+<div class="wp-block-group vibemag-single">
+  <!-- wp:post-featured-image {"align":"wide"} /-->
+
+  <!-- wp:post-title {"level":1} /-->
+
+  <!-- wp:post-content /-->
+
+  <!-- wp:group {"className":"vibemag-author-box","layout":{"type":"constrained"}} -->
+  <div class="wp-block-group vibemag-author-box">
+    <!-- wp:heading {"level":3} -->
+    <h3>About the author</h3>
+    <!-- /wp:heading -->
+
+    <!-- wp:columns {"verticalAlignment":"center"} -->
+    <div class="wp-block-columns are-vertically-aligned-center">
+      <!-- wp:column {"width":"72px"} -->
+      <div class="wp-block-column" style="flex-basis:72px">
+        <!-- wp:avatar {"size":72} /-->
+      </div>
+      <!-- /wp:column -->
+
+      <!-- wp:column -->
+      <div class="wp-block-column">
+        <!-- wp:post-author-name /-->
+        <!-- wp:post-author-biography /-->
+      </div>
+      <!-- /wp:column -->
+    </div>
+    <!-- /wp:columns -->
+  </div>
+  <!-- /wp:group -->
+
+  <!-- wp:shortcode -->
+  [vibemag_related_posts count="4"]
+  <!-- /wp:shortcode -->
+</div>
 <!-- /wp:group -->
+
 <!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
