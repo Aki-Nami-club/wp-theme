@@ -24,6 +24,30 @@
     });
   }
 
+
+  function initBackToTop() {
+    const button = document.getElementById('vibemag-back-to-top');
+
+    if (!button) {
+      return;
+    }
+
+    const toggleVisibility = () => {
+      if (window.scrollY > 500) {
+        button.classList.add('is-visible');
+      } else {
+        button.classList.remove('is-visible');
+      }
+    };
+
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
+    toggleVisibility();
+
+    button.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
   window.vibemagSearch = function vibemagSearch() {
     return {
       open: false,
@@ -90,5 +114,8 @@
     };
   };
 
-  document.addEventListener('DOMContentLoaded', initHomeSlider);
+  document.addEventListener('DOMContentLoaded', () => {
+    initHomeSlider();
+    initBackToTop();
+  });
 })();
