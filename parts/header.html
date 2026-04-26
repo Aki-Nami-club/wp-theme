@@ -41,7 +41,7 @@
           </div>
 
           <template x-if="loading">
-            <p data-i18n-text="searching">Searching...</p>
+            <p>Searching...</p>
           </template>
 
           <ul class="vibemag-search__results" x-show="results.length">
@@ -50,7 +50,7 @@
             </template>
           </ul>
 
-          <p x-show="!loading && query.length > 2 && !results.length" data-i18n-text="noResults">No results found.</p>
+          <p x-show="!loading && query.length > 2 && !results.length">No results found.</p>
         </div>
       </div>
     </div>
