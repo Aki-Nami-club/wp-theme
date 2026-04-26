@@ -1,0 +1,1 @@
+/* VibeMag scripts placeholder. */
