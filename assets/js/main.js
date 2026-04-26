@@ -49,6 +49,13 @@
         el.setAttribute('aria-label', i18n[key]);
       }
     });
+
+    document.querySelectorAll('[data-i18n-alt]').forEach((el) => {
+      const key = el.getAttribute('data-i18n-alt');
+      if (key && i18n[key]) {
+        el.setAttribute('alt', i18n[key]);
+      }
+    });
   }
 
   function initThemeMode() {

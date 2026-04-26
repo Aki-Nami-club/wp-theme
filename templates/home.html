@@ -24,12 +24,44 @@
     <div class="wp-block-group lg:col-span-1 sticky top-24 space-y-6">
       <!-- wp:html -->
       <aside class="vibemag-sidebar-widget">
-        <h3>Sidebar Ad</h3>
-        <img src="/wp-content/themes/vibemag/assets/images/banners/ad-sidebar-300x250.png" alt="Sidebar Ad Banner" width="300" height="250" loading="lazy" />
+        <h3 data-i18n-text="sidebarAd">Sidebar Ad</h3>
+        <img src="/wp-content/themes/vibemag/assets/images/banners/ad-sidebar-300x250.png" alt="Sidebar ad banner" data-i18n-alt="sidebarBannerAlt" width="300" height="250" loading="lazy" />
       </aside>
       <!-- /wp:html -->
 
       <!-- wp:latest-posts {"postsToShow":6,"displayPostDate":true} /-->
+    </div>
+    <!-- /wp:group -->
+  </div>
+  <!-- /wp:group -->
+
+  <!-- wp:html -->
+  <section class="vibemag-wide-ad">
+    <img src="/wp-content/themes/vibemag/assets/images/banners/ad-wide-970x250.png" alt="Wide ad banner" data-i18n-alt="wideBannerAlt" width="970" height="250" loading="lazy" />
+  </section>
+  <!-- /wp:html -->
+
+  <!-- wp:group {"className":"grid grid-cols-1 lg:grid-cols-4 gap-6 items-start"} -->
+  <div class="wp-block-group grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
+    <!-- wp:group {"className":"lg:col-span-3 space-y-8"} -->
+    <div class="wp-block-group lg:col-span-3 space-y-8">
+      <!-- wp:shortcode -->
+      [vibemag_category_block category_id="3" title="Reading" count="5"]
+      <!-- /wp:shortcode -->
+    </div>
+    <!-- /wp:group -->
+
+    <!-- wp:group {"className":"lg:col-span-1 sticky top-24 space-y-6"} -->
+    <div class="wp-block-group lg:col-span-1 sticky top-24 space-y-6">
+      <!-- wp:heading {"level":3} -->
+      <h3 data-i18n-text="moreStories">More stories</h3>
+      <!-- /wp:heading -->
+
+      <!-- wp:latest-posts {"postsToShow":8,"displayPostDate":true} /-->
+
+      <!-- wp:buttons -->
+      <div class="wp-block-buttons"><!-- wp:button --><div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/" data-i18n-text="readMore">Read more</a></div><!-- /wp:button --></div>
+      <!-- /wp:buttons -->
     </div>
     <!-- /wp:group -->
   </div>

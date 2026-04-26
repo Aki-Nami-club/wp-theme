@@ -15,9 +15,16 @@ add_action('wp_enqueue_scripts', static function (): void {
     $theme_version = wp_get_theme()->get('Version');
 
     wp_enqueue_style(
+        'vibemag-fonts',
+        'https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&display=swap',
+        [],
+        null
+    );
+
+    wp_enqueue_style(
         'vibemag-tailwind',
         'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css',
-        [],
+        ['vibemag-fonts'],
         '2.2.19'
     );
 
@@ -73,6 +80,17 @@ add_action('wp_enqueue_scripts', static function (): void {
                 'searching' => esc_html__('Searching...', 'vibemag'),
                 'noResults' => esc_html__('No results found.', 'vibemag'),
                 'untitled' => esc_html__('Untitled', 'vibemag'),
+                'latestLabel' => esc_html__('Latest:', 'vibemag'),
+                'closeSearch' => esc_html__('Close search', 'vibemag'),
+                'sidebarAd' => esc_html__('Sidebar Ad', 'vibemag'),
+                'moreStories' => esc_html__('More stories', 'vibemag'),
+                'readMore' => esc_html__('Read more', 'vibemag'),
+                'footerPages' => esc_html__('Pages', 'vibemag'),
+                'footerCategories' => esc_html__('Categories', 'vibemag'),
+                'backToTop' => esc_html__('Back to top', 'vibemag'),
+                'headerBannerAlt' => esc_html__('Header ad banner', 'vibemag'),
+                'sidebarBannerAlt' => esc_html__('Sidebar ad banner', 'vibemag'),
+                'wideBannerAlt' => esc_html__('Wide ad banner', 'vibemag'),
             ],
         ]
     );
