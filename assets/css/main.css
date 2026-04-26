@@ -321,3 +321,47 @@
 .vibemag-back-to-top:hover {
   filter: brightness(0.95);
 }
+
+.vibemag-theme-toggle {
+  border: 1px solid #d8dde6;
+  border-radius: 0.5rem;
+  padding: 0.35rem 0.65rem;
+  margin-right: 0.5rem;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+:root[data-theme='dark'] body {
+  background: #0f1115;
+  color: #e8ecf2;
+}
+
+:root[data-theme='dark'] .vibemag-header__nav.is-sticky,
+:root[data-theme='dark'] .vibemag-search__panel,
+:root[data-theme='dark'] .vibemag-slide-card,
+:root[data-theme='dark'] .vibemag-category-block__featured,
+:root[data-theme='dark'] .vibemag-category-block__list,
+:root[data-theme='dark'] .vibemag-sidebar-widget,
+:root[data-theme='dark'] .vibemag-author-box,
+:root[data-theme='dark'] .vibemag-related-posts__item {
+  background: #1a1e24;
+  border-color: #2c333d;
+}
+
+:root[data-theme='dark'] .vibemag-header__ticker {
+  border-bottom-color: #2c333d;
+}
+
+:root[data-theme='dark'] a {
+  color: #f39a4f;
+}
+
+:root[data-theme='dark'] .vibemag-search__bar input,
+:root[data-theme='dark'] .vibemag-search__toggle,
+:root[data-theme='dark'] .vibemag-theme-toggle {
+  background: #0f1115;
+  border-color: #3a424d;
+  color: #e8ecf2;
+}

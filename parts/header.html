@@ -30,6 +30,7 @@
 
     <!-- wp:html -->
     <div class="vibemag-search">
+      <button type="button" class="vibemag-theme-toggle" data-theme-toggle aria-label="Toggle dark mode">🌙</button>
       <button type="button" class="vibemag-search__toggle" @click="open = true" aria-label="Open search">🔍</button>
 
       <div class="vibemag-search__overlay" x-show="open" x-transition @click.self="close()" x-cloak>

@@ -25,6 +25,40 @@
   }
 
 
+
+  function initThemeMode() {
+    const root = document.documentElement;
+    const toggleButton = document.querySelector('[data-theme-toggle]');
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const stored = localStorage.getItem('vibemag-theme');
+
+    const applyTheme = (theme) => {
+      root.setAttribute('data-theme', theme);
+      if (toggleButton) {
+        toggleButton.textContent = theme === 'dark' ? '☀️' : '🌙';
+      }
+    };
+
+    const systemTheme = mediaQuery.matches ? 'dark' : 'light';
+    applyTheme(stored || systemTheme);
+
+    if (toggleButton) {
+      toggleButton.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        const next = current === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('vibemag-theme', next);
+        applyTheme(next);
+      });
+    }
+
+    mediaQuery.addEventListener('change', (event) => {
+      if (localStorage.getItem('vibemag-theme')) {
+        return;
+      }
+      applyTheme(event.matches ? 'dark' : 'light');
+    });
+  }
+
   function initBackToTop() {
     const button = document.getElementById('vibemag-back-to-top');
 
@@ -116,6 +150,7 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     initHomeSlider();
+    initThemeMode();
     initBackToTop();
   });
 })();
